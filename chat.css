@@ -1,0 +1,425 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #00000080;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000000cc;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #F1E3D6;
+    font-family: "Manrope", "Roboto", "Arial";
+    padding: 1em;
+    gap: 1em;
+  }
+  
+  hr {
+    width: 75%;
+    height: 1px;
+    margin: auto;
+    border: none;
+    background: #00000020;
+  }
+  
+  .icon {
+    cursor: pointer;
+    transition: all ease 0.5s;
+  }
+  .icon:hover {
+    opacity: 0.5;
+  }
+  
+  .person {
+    --size:2em;
+    width: fit-content;
+    min-width: var(--size);
+    min-height: var(--size);
+    position: relative;
+    background-image: url("data:image/jpeg;base64,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");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+  }
+  .person.avatar {
+    --size:3.4em;
+  }
+  .person.photo {
+    --size:6em;
+  }
+  .person.photo .online {
+    --size:1.5em;
+  }
+  .person .online {
+    --size:0.75em;
+    width: fit-content;
+    min-width: var(--size);
+    min-height: var(--size);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #09db84;
+    border-radius: 50%;
+  }
+  
+  .chat {
+    --bg:#fff;
+    --bg-secundary:#e1e1e8;
+    --bg-highlight:#057ef7;
+    --color:#2a2b2e;
+    max-width: 960px;
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    color: var(--color);
+    background: var(--bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 8px -4px #00000020;
+    transition: all ease 0.5s;
+  }
+  .chat.dark {
+    --bg:#1f2024;
+    --bg-secundary:#292a30;
+    --color:#dde4f0;
+  }
+  .chat[data-color=red] {
+    --bg-highlight:#f70546;
+  }
+  .chat[data-color=green] {
+    --bg-highlight:#10915c;
+  }
+  .chat[data-color=purple] {
+    --bg-highlight:#b600f2;
+  }
+  .chat .conversation {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all ease 0.5s;
+  }
+  .chat .conversation .head {
+    width: 100%;
+    min-height: 4em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background: var(--bg-secundary);
+    padding: 0.5em;
+  }
+  .chat .conversation .head .buttons {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-left: auto;
+  }
+  .chat .conversation .messages {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    padding: 1em;
+    overflow: auto;
+  }
+  .chat .conversation .messages .time {
+    width: fit-content;
+    font-size: 0.75em;
+    margin: 0 auto;
+    padding: 0.5em;
+    border-radius: 6px;
+    background: #00000020;
+  }
+  .chat .conversation .messages .msg-text {
+    width: fit-content;
+    font-size: 0.85em;
+    animation: appear-msg ease 0.25s forwards;
+  }
+  .chat .conversation .messages .msg-text .text {
+    display: block;
+    padding: 0.75em;
+    border-radius: 0.75em 0.75em 0.75em 0;
+    background: var(--bg-secundary);
+    box-shadow: 0 2px 0 #00000020;
+  }
+  .chat .conversation .messages .msg-text.owner {
+    margin-left: auto;
+  }
+  .chat .conversation .messages .msg-text.owner .text {
+    color: #fff;
+    background: var(--bg-highlight);
+    border-radius: 0.75em 0.75em 0 0.75em;
+  }
+  .chat .conversation .field {
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.25em 0.5em;
+    border-top: 1px solid var(--bg-secundary);
+    transition: all ease 0.5s;
+  }
+  .chat .conversation .field .input-message {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0.5em 1em;
+    border-radius: 50px;
+    color: var(--color);
+    background: var(--bg-secundary);
+    transition: all ease 0.5s;
+  }
+  .chat .conversation .field .input-message:placeholder-shown ~ .text {
+    display: none;
+  }
+  .chat .conversation .field .input-message:not(:placeholder-shown) ~ .plus {
+    display: none;
+  }
+  .chat .conversation .field .input-message:not(:placeholder-shown) ~ .audio {
+    display: none;
+  }
+  .chat .conversation .field .plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 50%;
+    background: var(--bg-secundary);
+  }
+  .chat .conversation .field .send {
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background: var(--bg-highlight);
+    padding: 0.5em;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .chat .conversation .field .send .audio {
+    display: none;
+  }
+  .chat .options {
+    min-width: 50%;
+    height: 100%;
+    padding: 0.5em;
+    border-left: 1px solid var(--bg-secundary);
+    background: var(--bg);
+    position: absolute;
+    right: -100%;
+    overflow: auto;
+    transition: all ease 0.5s;
+  }
+  .chat .options.active {
+    right: 0;
+  }
+  .chat .options .head {
+    display: flex;
+    align-items: center;
+  }
+  .chat .options .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .chat .options .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  .chat .options .buttons .button {
+    text-align: center;
+  }
+  .chat .options .buttons .button .icon {
+    --size:2em;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    margin: auto;
+    background: var(--bg-secundary);
+    border-radius: 50%;
+  }
+  .chat .options .buttons .button .title {
+    font-size: 0.9em;
+    margin: 0.25em;
+    opacity: 0.5;
+  }
+  .chat .options .details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    font-size: 0.9em;
+    padding: 1em 2em;
+  }
+  .chat .options .details > * {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+    border-bottom: 1px solid #00000020;
+  }
+  .chat .options .details .search-field .icon {
+    display: flex;
+    align-items: center;
+  }
+  .chat .options .details .search-field .search {
+    width: 100%;
+    padding: 0.25em;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  .chat .options .details .dark-mode .input-dark {
+    display: none;
+  }
+  .chat .options .details .dark-mode .input-dark:checked ~ .toggle .circle {
+    left: 50%;
+    background: var(--bg-highlight);
+  }
+  .chat .options .details .dark-mode .toggle {
+    cursor: pointer;
+    --size:1.5em;
+    width: calc(var(--size) * 2);
+    height: var(--size);
+    position: relative;
+    border-radius: var(--size);
+    outline: 2px solid var(--bg-secundary);
+  }
+  .chat .options .details .dark-mode .toggle .circle {
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    left: 0;
+    background: var(--bg-secundary);
+    border-radius: var(--size);
+    transition: all ease 0.5s;
+  }
+  .chat .options .details .theme .colors {
+    display: flex;
+    gap: 0.5em;
+  }
+  .chat .options .details .theme .colors .color {
+    cursor: pointer;
+    --size:1.25em;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+  }
+  .chat .options .details .theme .colors .color:hover {
+    outline: 2px solid var(--bg-secundary);
+  }
+  .chat .options .details .theme .colors .color.blue {
+    background: #057ef7;
+  }
+  .chat .options .details .theme .colors .color.red {
+    background: #f70546;
+  }
+  .chat .options .details .theme .colors .color.green {
+    background: #10915c;
+  }
+  .chat .options .details .theme .colors .color.purple {
+    background: #b600f2;
+  }
+  .chat .options .details .media {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .chat .options .details .media .label {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .chat .options .details .media .photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 96px;
+    grid-column-gap: 6px;
+    grid-row-gap: 6px;
+  }
+  .chat .options .details .media .photos .img {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    object-position: center;
+  }
+  .chat .options .details .view-more {
+    cursor: pointer;
+    width: fit-content;
+    margin: auto;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    color: var(--bg-highlight);
+    background: #00000005;
+    border-radius: 8px;
+    padding: 0.5em;
+  }
+  
+  .social {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+  }
+  .social .button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .chat .conversation, .chat .options {
+      width: 100%;
+    }
+  }
+  @keyframes appear-msg {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
